@@ -1,0 +1,96 @@
+.container {
+  height: 30rem;
+  width: 22rem;
+  margin: auto;
+}
+.title {
+  margin-top: 3.5rem;
+  margin-left: 32%;
+  font-weight: bold;
+  font-size: 2rem;
+  position: relative;
+  align-content: center;
+  margin-bottom: 3rem;
+}
+input {
+  width: 80%;
+  height: 3rem;
+  border-radius: 20px;
+  border: 1px solid grey;
+  margin-top: 1rem;
+  margin-left: 10%;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+input[type="text"] {
+  padding-left: 25px;
+}
+input[type="password"] {
+  padding-left: 25px;
+}
+.image-placeholder {
+  position: absolute;
+  left: 38px;
+  top: 61%;
+  transform: translateY(-50%);
+  color: grey;
+}
+input:focus + .image-placeholder {
+  color: black;
+}
+.button {
+  width: 80%;
+  margin: 19px 26px;
+}
+a.animated-button.thar-two {
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  position: relative;
+  border-radius: 15px;
+  border: 2px solid green;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-two:hover {
+  color: #000 !important;
+  border-radius: 15px;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+a.animated-button.thar-two:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+  border-radius: 15px;
+}
+a.animated-button.thar-two:before {
+  display: block;
+  position: absolute;
+  border-radius: 15px;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: green;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+h4 {
+  left: 49%;
+  margin-top: -10rem;
+  position: relative;
+}
+.other-option {
+  border: 2px solid red;
+  height: 3rem;
+  width: 15%;
+  margin-left: 42%;
+  border-radius: 15px;
+}
