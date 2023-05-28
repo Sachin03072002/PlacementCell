@@ -15,9 +15,9 @@ app.get("/", require('./routes/index'));
 
 //set up the view engine
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
-    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home Page' });
+    res.render(path.join(__dirname + '/views/layout.ejs'), { title: 'Home Page' });
 })
 
 app.listen(port, function (err) {

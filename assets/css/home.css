@@ -1,3 +1,7 @@
 body {
   overflow-x: hidden;
 }
+main {
+  border: 2px solid red;
+  margin-top: 3.3rem;
+}

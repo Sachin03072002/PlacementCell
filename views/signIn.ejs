@@ -1,25 +1,32 @@
 <link rel="stylesheet" type="text/css" href="css/signIn.css">
+<link rel="stylesheet" href="css/button.css">
 <div class="wrapper">
     <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
         <h3 class="title">Sign in</h3>
-        <form action="" class="form">
+        <form action="" class="form" id="myForm">
             <div class="input-container">
-                <input type="text" name="username" placeholder="Username" id="name" required>
+                <input type="text" name="username" placeholder="Username" id="name">
                 <i class="fa-regular fa-circle-user image-placeholder"></i>
             </div>
             <div class="input-container">
-                <input type="password" name="password" id="password" placeholder="*******" required>
+                <input type="password" name="password" id="password" placeholder="*******">
                 <i class="fa-solid fa-lock image-placeholder"></i>
             </div>
-            <div class="button"> <a href="#" class="btn btn-sm animated-button thar-two">Sign in</a>
-            </div>
+            <button class="button">
+                <span class="submit">Submit</span>
+                <span class="loading"><i class="fa fa-refresh"></i></span>
+                <span class="check"><i class="fa fa-check"></i></span>
+            </button>
     </div>
-    <h4>Or</h4>
-    <div class="other-option">
-        <a href="images/facebook.png" title="google icons"></a>
-        <a href="https://th.bing.com/th/id/R.c8bf7c087ca9793d094042845707ffac?rik=fjZN1AYH30vXIw&riu=http%3a%2f%2fpngimg.com%2fuploads%2fgoogle%2fgoogle_PNG19635.png&ehk=ZmsumEtoeJQhKoUzQTZO2TEbYPBu0%2b7EFdjmJ3qljls%3d&risl=&pid=ImgRaw&r=0"
-            title="google icons"></a>
-    </div>
-    </form>
+</div>
+<h4 class="h4-text">Or</h4>
+<div class="other-option">
+    <i class="fa-brands fa-google"></i>
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-instagram"></i>
+</div>
+</form>
 </div>
 </div>
+
+<script src="js/button.js"></script>
