@@ -2,6 +2,22 @@
     .navbar-toggler {
         background-color: white;
     }
+
+    .logingateway {
+        width: 14rem;
+        justify-content: space-evenly;
+        display: flex;
+    }
+
+    .logingateway span a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .logingateway span a:hover {
+        color: aliceblue;
+        text-decoration: wavy;
+    }
 </style>
 <nav class="navbar navbar-expand-lg bg-dark text-white fixed-top">
     <div class="container-fluid">
@@ -22,9 +38,17 @@
                     <a class="nav-link text-white" href="#">Pricing</a>
                 </li>
             </ul>
-            <span class="navbar-text">
-                <a href="/users/sign-In">Log-In</a>
-            </span>
+            <div class="logingateway">
+                <span class="navbar-text">
+                    <a href="/users/sign-In">Log-In</a>
+                </span>
+                <span class="navbar-text">
+                    <a href="/users/sign-Up">Sign Up</a>
+                </span>
+                <span class="navbar-text">
+                    <a href="/users/sign-Up">Sign Out</a>
+                </span>
+            </div>
         </div>
     </div>
 </nav>

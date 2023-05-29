@@ -1,9 +1,13 @@
-<link rel="stylesheet" type="text/css" href="css/signIn.css">
+<link rel="stylesheet" type="text/css" href="css/signUp.css">
 <link rel="stylesheet" href="css/button.css">
 <div class="wrapper">
     <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
-        <h3 class="title">Sign in</h3>
+        <h3 class="title">Sign Up</h3>
         <form action="" class="form" id="myForm">
+            <div class="input-container">
+                <input type="email" name="email" id="email" placeholder="abc@gmail.com">
+                <i class="fa-solid fa-envelope image-placeholder"></i>
+            </div>
             <div class="input-container">
                 <input type="text" name="username" placeholder="Username" id="name">
                 <i class="fa-regular fa-circle-user image-placeholder"></i>
@@ -12,13 +16,17 @@
                 <input type="password" name="password" id="password" placeholder="*******">
                 <i class="fa-solid fa-lock image-placeholder"></i>
             </div>
+            <div class="input-container">
+                <input type="password" name="Confirmpassword" id="Confirmpassword" placeholder="*******">
+                <i class="fa-solid fa-lock image-placeholder"></i>
+            </div>
             <button class="button">
                 <span class="submit">Submit</span>
                 <span class="loading"><i class="fa fa-refresh"></i></span>
                 <span class="check"><i class="fa fa-check"></i></span>
             </button>
             <div class="creatingAccount-link">
-                <a href="">Don't have an Account? Create One...</a>
+                <a href="">Already have an Account? Log in...</a>
             </div>
     </div>
 </div>
@@ -32,4 +40,4 @@
 </div>
 </div>
 
-<script src="js/button.js"></script>
+<script src="js/signUp.js"></script>

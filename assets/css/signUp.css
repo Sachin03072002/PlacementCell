@@ -1,35 +1,47 @@
 .container {
+  margin-top: 7rem;
   height: 30rem;
   width: 22rem;
-  margin: auto;
 }
 .title {
-  margin-top: 3.5rem;
+  margin-top: 0.2rem;
   margin-left: 32%;
   font-weight: bold;
   font-size: 2rem;
   position: relative;
   align-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 input {
   width: 80%;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 20px;
   border: 1px solid grey;
   margin-top: 1rem;
   margin-left: 10%;
   font-size: 1rem;
   padding-left: 1rem;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .input-container {
   position: relative;
 }
+.input-container p {
+  position: absolute;
+  font-size: 0.5rem;
+  color: red;
+  left: 16%;
+}
 input[type="text"] {
   padding-left: 25px;
 }
 input[type="password"] {
+  padding-left: 25px;
+  padding-right: 10px;
+}
+input[type="email"] {
   padding-left: 25px;
   padding-right: 10px;
 }
@@ -53,9 +65,10 @@ input:focus + .password-placeholder {
   color: black;
 }
 
-h4 {
+.h4-text {
   margin-top: -10rem;
   position: relative;
+  margin-left: 49%;
 }
 .other-option {
   height: 3rem;
@@ -67,9 +80,15 @@ h4 {
   margin: auto;
   align-items: center;
   color: #05052e;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 .other-option i:hover {
   color: rgb(17, 21, 154);
   cursor: pointer;
+}
+.creatingAccount-link {
+  position: relative;
+  margin-top: 40%;
+  left: 47%;
+  font-size: 0.7rem;
 }
