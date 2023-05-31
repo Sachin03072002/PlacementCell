@@ -8,12 +8,17 @@
   overflow-y: scroll;
 }
 
-.student_title,
-.conference_title {
+.student_title {
   text-align: -webkit-center;
   text-decoration: underline;
   font-family: monospace;
   position: sticky;
+}
+.conference_title {
+  text-align: -webkit-center;
+  text-decoration: underline;
+  font-family: monospace;
+  position: inherit;
 }
 .card {
   display: flex;
@@ -88,7 +93,7 @@ aside {
   }
   .student_title,
   .conference_title {
-    position: relative;
+    position: inherit;
     margin-left: 1rem;
     z-index: -1;
   }
