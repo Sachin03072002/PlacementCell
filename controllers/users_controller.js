@@ -13,6 +13,6 @@ module.exports.signUp = function (req, res) {
     // }
     console.log('hi');
     return res.render('signUp', {
-        title: "Codeial | Sign In"
+        title: "Codeial | Sign Up"
     })
 }

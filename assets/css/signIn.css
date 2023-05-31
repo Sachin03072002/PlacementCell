@@ -34,6 +34,11 @@ input {
   color: red;
   left: 16%;
 }
+.forgot-link {
+  font-size: 0.7rem;
+  position: relative;
+  left: 58%;
+}
 input[type="text"] {
   padding-left: 25px;
 }
@@ -84,7 +89,7 @@ input:focus + .password-placeholder {
 }
 .creatingAccount-link {
   position: relative;
-  margin-top: 43%;
+  margin-top: 36%;
   left: 47%;
   font-size: 0.7rem;
 }

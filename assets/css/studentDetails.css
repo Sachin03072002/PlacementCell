@@ -1,5 +1,184 @@
-.studentDetails {
-  border: 2px solid red;
-  height: 2rem;
-  width: 3rem;
+* {
+  box-sizing: border-box;
 }
+.studentDetails {
+  height: auto;
+  width: 70%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.student_title,
+.conference_title {
+  text-align: -webkit-center;
+  text-decoration: underline;
+  font-family: monospace;
+  position: sticky;
+}
+.card {
+  display: flex;
+  align-items: center;
+  width: 44%;
+  max-width: 650px;
+  padding: 7px;
+  background: #ffff;
+  border-radius: 24px;
+}
+.card img {
+  max-width: 280px;
+  width: 10vw;
+  height: 20vh;
+  object-fit: cover;
+  margin-left: -7rem;
+  margin-right: 30px;
+  border-radius: 20px;
+  box-shadow: 0 60px 40px rgb(0 0 0 /8%);
+}
+.card-body {
+  padding: 1%;
+  margin-left: 10%;
+}
+.hamburger {
+  display: none;
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background: darkblue;
+  left: 92%;
+  position: fixed;
+  top: 67%;
+  z-index: 1;
+}
+.hamburger i {
+  margin-left: 0.9rem;
+  margin-top: 0.9rem;
+  font-size: 2rem;
+  color: white;
+}
+aside {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 30%;
+}
+.open {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffff;
+}
+.close {
+  display: none;
+}
+
+@media (width<= 1150px) {
+  .card {
+    border: 2px solid green;
+  }
+  .studentDetails {
+    width: 100%;
+  }
+  .card img {
+    height: 17vh;
+    margin-left: -2rem;
+  }
+
+  .card-body {
+    margin-left: 2rem;
+  }
+  .student_title,
+  .conference_title {
+    position: relative;
+    margin-left: 1rem;
+    z-index: -1;
+  }
+}
+@media (width<= 850px) {
+  .card {
+    border: 2px solid pink;
+  }
+  .card img {
+    height: 6rem;
+    width: 6rem;
+  }
+}
+/* tablet -- yellow*/
+@media (width <=770px) {
+  .studentDetails {
+    width: 100%;
+  }
+  .hamburger {
+    display: block;
+  }
+  .card {
+    border: 2px solid yellow;
+    flex-direction: column;
+    text-align: center;
+    margin: 7rem 40px;
+    padding-left: -1rem;
+    padding-right: 50px;
+    width: 100%;
+  }
+  .card img {
+    margin: -100px 0 -12px 28px;
+    width: 5rem;
+    max-width: 1000px;
+  }
+  aside {
+    display: none;
+  }
+  .hamburger {
+    top: 82%;
+    left: 87%;
+  }
+}
+/* mobile large   -- red*/
+@media (width<=425px) {
+  .card {
+    border: 2px solid red;
+  }
+  .card img {
+    width: 55%;
+    height: 7rem;
+  }
+  .hamburger {
+    top: 82%;
+    left: 82%;
+    z-index: 1;
+  }
+}
+/* small phone -- blue*/
+
+@media (width<=320px) {
+  .card {
+    border: 2px solid blue;
+  }
+  .card img {
+    width: 90%;
+    height: 5rem;
+  }
+  .hamburger {
+    top: 82%;
+    left: 82%;
+    z-index: 1;
+    height: 8%;
+    width: 18%;
+  }
+  .hamburger i {
+    font-size: 1.5rem;
+  }
+}
+
+/* #fav-movies-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+/* #fav-movies-container::-webkit-scrollbar-track {
+  border-radius: 20px;
+}
+
+/* Handle */
+/* #fav-movies-container::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+} */
