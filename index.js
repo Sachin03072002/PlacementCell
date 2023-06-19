@@ -12,7 +12,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-stratergy');
-
+const MongoStore = require('connect-mongo');
 // Middleware setup
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -28,6 +28,7 @@ app.set('layout extractScripts', true);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+//mongo store is used to store the session cookie
 // Session configuration
 app.use(session({
     name: 'placement-cell',
@@ -36,8 +37,18 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: 1000 * 60 * 100 // Adjust the cookie expiration time as needed
+    },
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://127.0.0.1:27017/placement_development',
+        autoRemove: 'disabled'
+    }),
+    function(err) {
+        console.log(err || 'connect-mongodb store ok');
     }
 }));
+
+
+
 
 // Passport initialization
 app.use(passport.initialize());

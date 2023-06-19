@@ -39,15 +39,25 @@
                 </li>
             </ul>
             <div class="logingateway">
-                <span class="navbar-text">
-                    <a href="/users/sign-In">Log-In</a>
-                </span>
-                <span class="navbar-text">
-                    <a href="/users/sign-Up">Sign Up</a>
-                </span>
-                <span class="navbar-text">
-                    <a href="/users/sign-Up">Sign Out</a>
-                </span>
+                <% if(locals.user){ %>
+                    <span class="navbar-text">
+                        <a href="">
+                            <%= user.name %>
+                        </a>
+                    </span>
+                    <span class="navbar-text">
+                        <a href="/users/sign-out">Sign Out</a>
+                    </span>
+                    <% }else{ %>
+                        <span class="navbar-text">
+                            <a href="/users/sign-In">Log-In</a>
+                        </span>
+                        <span class="navbar-text">
+                            <a href="/users/sign-Up">Sign Up</a>
+                        </span>
+                        <% } %>
+
+
             </div>
         </div>
     </div>
