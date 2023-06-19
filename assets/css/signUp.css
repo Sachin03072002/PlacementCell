@@ -1,3 +1,7 @@
+.wrapper {
+  margin-top: -2%;
+  margin: auto;
+}
 .container {
   margin-top: 7rem;
   height: 30rem;
@@ -66,7 +70,7 @@ input:focus + .password-placeholder {
 }
 
 .h4-text {
-  margin-top: -10rem;
+  margin-top: -7rem;
   position: relative;
   margin-left: 49%;
 }

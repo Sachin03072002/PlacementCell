@@ -1,11 +1,11 @@
-<link rel="stylesheet" type="text/css" href="css/signIn.css">
-<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="/static/css/signIn.css">
+<link rel="stylesheet" href="/static/css/button.css">
 <div class="wrapper">
     <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
         <h3 class="title">Sign in</h3>
-        <form action="" class="form" id="myForm">
+        <form action="/users/create-session" class="form" id="myForm" method="POST">
             <div class="input-container">
-                <input type="text" name="username" placeholder="Username" id="name">
+                <input type="email" name="email" placeholder="Email" id="name">
                 <i class="fa-regular fa-circle-user image-placeholder"></i>
             </div>
             <div class="input-container">
@@ -14,7 +14,7 @@
 
             </div>
             <a href="" class="forgot-link">Forgot Password...</a>
-            <button class="button">
+            <button class="button" type="submit">
                 <span class="submit">Submit</span>
                 <span class="loading"><i class="fa fa-refresh"></i></span>
                 <span class="check"><i class="fa fa-check"></i></span>
@@ -22,16 +22,14 @@
             <div class="creatingAccount-link">
                 <a href="">Don't have an Account? Create One...</a>
             </div>
+            <h6 class="h4-text">Or</h6>
+            <div class="other-option">
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </form>
     </div>
 </div>
-<h6 class="h4-text">Or</h6>
-<div class="other-option">
-    <i class="fa-brands fa-google"></i>
-    <i class="fa-brands fa-facebook"></i>
-    <i class="fa-brands fa-instagram"></i>
-</div>
-</form>
-</div>
-</div>
 
-<script src="js/signIn.js"></script>
+<script src="/static/js/signIn.js"></script>

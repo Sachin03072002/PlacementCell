@@ -1,10 +1,11 @@
 const button = document.querySelector('.button');
 const submit = document.querySelector('.submit');
+const myForm = document.getElementById('myForm');
+const myInput = document.getElementById('name');
+const password = document.getElementById('password');
+const confirm = document.getElementById('Confirmpassword');
+const email = document.getElementById('email');
 
-let myInput = document.getElementById("name");
-let password = document.getElementById("password");
-let confirm = document.getElementById("Confirmpassword");
-let email = document.getElementById('email');
 function toggleClass() {
     this.classList.toggle('active-btn');
 }
@@ -15,69 +16,36 @@ function addClass() {
     // Remove the 'active-btn' and 'finished' classes after the animation is done
     setTimeout(() => {
         this.classList.remove('active-btn', 'finished');
-        submit.innerHTML = 'Signed Up'
-        button.style.backgroundColor = "green";
+        submit.innerHTML = 'Signed Up';
+        button.style.backgroundColor = 'green';
         this.disabled = true;
-    }, 1000); // Adjust the timeout value to match the duration of your animation
+    }, 300); // Adjust the timeout value to match the duration of your animation
 }
+
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(emailRegex.test(email))
     return emailRegex.test(email);
 }
-document.getElementById("myForm").addEventListener("submit", function (event) {
-    if (!email || !myInput.value || !password.value || !confirm) {
+
+myForm.addEventListener('submit', function (event) {
+    if (!email.value || !myInput.value || !password.value || !confirm.value) {
         event.preventDefault(); // Prevent form submission
         if (!email.value) {
-            let alertMessage = document.createElement("p");
-            alertMessage.classList.add("custom-alert");
-            alertMessage.textContent = "Please fill the required Email.";
-            if (!validateEmail(email.value)) {
-                alertMessage.textContent = "Please enter a valid Email"
-            }
-            email.parentNode.appendChild(alertMessage);
-
-            setTimeout(function () {
-                alertMessage.remove();
-            }, 3000); // Remove the custom alert after 3 seconds
+            showAlert(email.parentNode, 'Please fill in the required Email.', validateEmail(email.value));
         }
+
         if (!myInput.value) {
-            let alertMessage = document.createElement("p");
-            alertMessage.classList.add("custom-alert");
-            alertMessage.textContent = "Please fill the required Username.";
-
-            myInput.parentNode.appendChild(alertMessage);
-
-            setTimeout(function () {
-                alertMessage.remove();
-            }, 3000); // Remove the custom alert after 3 seconds
+            showAlert(myInput.parentNode, 'Please fill in the required Username.');
         }
 
         if (!password.value) {
-            let alertMessage = document.createElement("p");
-            alertMessage.classList.add("custom-alert-1");
-            alertMessage.textContent = "Please fill the required password.";
-
-            password.parentNode.appendChild(alertMessage);
-
-            setTimeout(function () {
-                alertMessage.remove();
-            }, 3000); // Remove the custom alert after 3 seconds
+            showAlert(password.parentNode, 'Please fill in the required password.');
         }
+
         if (!confirm.value) {
-            let alertMessage = document.createElement("p");
-            alertMessage.classList.add("custom-alert-1");
-            alertMessage.textContent = "Please fill the required password.";
-            confirm.parentNode.appendChild(alertMessage);
-
-            setTimeout(function () {
-                alertMessage.remove();
-            }, 3000); // Remove the custom alert after 3 seconds
+            showAlert(confirm.parentNode, 'Please fill in the required password.');
         }
-
     } else {
-        event.preventDefault(); // Prevent form submission
-
         button.addEventListener('click', toggleClass);
         button.addEventListener('transitionend', addClass);
 
@@ -85,3 +53,19 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
         button.click();
     }
 });
+
+function showAlert(container, message, isValid = true) {
+    const alertMessage = document.createElement('p');
+    alertMessage.classList.add('custom-alert');
+    alertMessage.textContent = message;
+
+    if (!isValid) {
+        alertMessage.textContent = 'Please enter a valid Email.';
+    }
+
+    container.appendChild(alertMessage);
+
+    setTimeout(() => {
+        alertMessage.remove();
+    }, 3000); // Remove the custom alert after 3 seconds
+}

@@ -17,12 +17,12 @@ function addClass() {
         submit.innerHTML = 'Logged In'
         button.style.backgroundColor = "green";
         this.disabled = true;
-    }, 1000); // Adjust the timeout value to match the duration of your animation
+    }, 300); // Adjust the timeout value to match the duration of your animation
 }
 
 document.getElementById("myForm").addEventListener("submit", function (event) {
     if (!myInput.value || !password.value) {
-        event.preventDefault(); // Prevent form submission
+        // event.preventDefault(); // Prevent form submission
 
         if (!myInput.value) {
             let alertMessage = document.createElement("p");
@@ -49,7 +49,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
         }
 
     } else {
-        event.preventDefault(); // Prevent form submission
+        // event.preventDefault(); // Prevent form submission
 
         button.addEventListener('click', toggleClass);
         button.addEventListener('transitionend', addClass);
@@ -57,4 +57,5 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
         // Trigger the animation
         button.click();
     }
+
 });
