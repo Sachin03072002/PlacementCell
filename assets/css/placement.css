@@ -1,24 +1,18 @@
 * {
   box-sizing: border-box;
 }
-.studentDetails {
+.placementDetails {
   height: auto;
-  width: 70%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.student_title {
+.placement_title {
   text-align: -webkit-center;
   text-decoration: underline;
   font-family: monospace;
   position: sticky;
-}
-.conference_title {
-  text-align: -webkit-center;
-  text-decoration: underline;
-  font-family: monospace;
-  position: inherit;
 }
 .card {
   display: flex;
@@ -43,44 +37,12 @@
   padding: 1%;
   margin-left: 10%;
 }
-.hamburger {
-  display: none;
-  position: relative;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-  background: darkblue;
-  left: 92%;
-  position: fixed;
-  top: 67%;
-  z-index: 1;
-}
-.hamburger i {
-  margin-left: 0.9rem;
-  margin-top: 0.9rem;
-  font-size: 2rem;
-  color: white;
-}
-aside {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  width: 30%;
-}
-.open {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #ffff;
-}
-.close {
-  display: none;
-}
 
 @media (width<= 1150px) {
   .card {
     border: 2px solid green;
   }
-  .studentDetails {
+  .placementDetails {
     width: 100%;
   }
   .card img {
@@ -91,8 +53,7 @@ aside {
   .card-body {
     margin-left: 2rem;
   }
-  .student_title,
-  .conference_title {
+  .placement_title {
     position: inherit;
     margin-left: 1rem;
     z-index: -1;
@@ -110,12 +71,10 @@ aside {
 }
 /* tablet -- yellow*/
 @media (width <=770px) {
-  .studentDetails {
+  .placementDetails {
     width: 100%;
   }
-  .hamburger {
-    display: block;
-  }
+
   .card {
     border: 2px solid yellow;
     flex-direction: column;
@@ -130,13 +89,6 @@ aside {
     width: 5rem;
     max-width: 1000px;
   }
-  aside {
-    display: none;
-  }
-  .hamburger {
-    top: 82%;
-    left: 87%;
-  }
 }
 /* mobile large   -- red*/
 @media (width<=425px) {
@@ -146,11 +98,6 @@ aside {
   .card img {
     width: 55%;
     height: 7rem;
-  }
-  .hamburger {
-    top: 82%;
-    left: 82%;
-    z-index: 1;
   }
 }
 /* small phone -- blue*/
@@ -163,28 +110,18 @@ aside {
     width: 90%;
     height: 5rem;
   }
-  .hamburger {
-    top: 82%;
-    left: 82%;
-    z-index: 1;
-    height: 8%;
-    width: 18%;
-  }
-  .hamburger i {
-    font-size: 1.5rem;
-  }
 }
 
 /* #fav-movies-container::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
+    width: 5px;
+  }
+  
+  /* Track */
 /* #fav-movies-container::-webkit-scrollbar-track {
-  border-radius: 20px;
-}
-
-/* Handle */
+    border-radius: 20px;
+  }
+  
+  /* Handle */
 /* #fav-movies-container::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-} */
+    border-radius: 20px;
+  } */
