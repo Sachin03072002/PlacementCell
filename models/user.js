@@ -17,5 +17,11 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 });
 
+
+// validate the password with passed on user password
+userSchema.methods.isValidatePassword = async function (userSentPassword) {
+    return this.password === userSentPassword;
+};
+
 const User = mongoose.model('User', userSchema);
 module.exports = User;

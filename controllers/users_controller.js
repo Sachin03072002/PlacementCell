@@ -1,4 +1,37 @@
 const User = require('../models/user');
+module.exports.profile = function (req, res) {
+    return res.render('user_profile', {
+        title: 'Placement Cell | User Profile',
+        profile_user: req.user
+    });
+}
+
+// update user Details
+module.exports.updateUser = async function (req, res) {
+    try {
+        const user = await User.findById(req.user.id);
+        const { name, password, confirm_password } = req.body;
+
+        if (password != confirm_password) {
+            return res.redirect("back");
+        }
+
+        if (!user) {
+            return res.redirect("back");
+        }
+
+        user.name = name;
+        user.password = password;
+
+        user.save();
+        return res.redirect("back");
+    } catch (err) {
+        console.log(err);
+        return res.redirect("back");
+    }
+};
+
+
 module.exports.home = function (req, res) {
     if (req.isAuthenticated()) {
         res.redirect('/');
