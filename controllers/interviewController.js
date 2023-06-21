@@ -139,22 +139,32 @@ module.exports.deallocate = async (req, res) => {
 //function to delete the interview 
 module.exports.delete = async (req, res) => {
     try {
-        const { interviewId } = req.params;
+        const { studentId, interviewId } = req.params;
 
-        let result = await Interview.findByIdAndDelete(interviewId);
-        if (!result) {
-            console.log('No interview found');
-        } else {
-            console.log('Deleted successfully');
-            // Remove interview reference from associated students
-            const studentIds = result.students;
-            await Student.updateMany(
-                { _id: { $in: studentIds } },
-                { $pull: { interviews: interviewId } }
-            );
+        // Find the interview
+        const interview = await Interview.findById(interviewId);
+        if (!interview) {
+            // Interview not found
+            return res.redirect("back");
         }
+
+        // Remove the reference of student from the interview schema
+        await Interview.findOneAndUpdate(
+            { _id: interviewId },
+            { $pull: { students: { student: studentId } } }
+        );
+
+        // Remove the interview from each student's schema using the interview company
+        await Student.updateMany(
+            { interviews: { $elemMatch: { company: interview.company } } },
+            { $pull: { interviews: { company: interview.company } } }
+        );
+
+        // Delete the interview
+        await Interview.findByIdAndDelete(interviewId);
+
         return res.redirect("back");
     } catch (err) {
         console.log('Error:', err);
     }
-}
+};

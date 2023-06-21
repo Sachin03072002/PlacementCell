@@ -118,7 +118,7 @@ module.exports.destroy = async (req, res) => {
         }
 
         await Student.deleteOne({ _id: studentId });
-        return res.redirect('back');
+        return res.redirect('/');
     } catch (err) {
         console.log('error', err);
         return res.redirect('back');
