@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="/static/css/studentForm.css">
 <!-- <h2>New Student Form</h2> -->
-<form action="/student/addNewStudentForm" method="POST">
-
-    <div class="container mt-12 col-md-12 center">
+<% if(locals.user){ %>
+    <div class="container mt-4 col-md-4">
         <h2>Student Information</h2>
-        <form>
+        <form action="/student/addNewStudentForm" method="POST" class="row g-3 mt-1 border border-dark rounded p-2"
+            style="--bs-border-opacity:0.5">
+
             <div class="col-12">
                 <label for="name" class="form-label">Name:</label>
                 <input type="text" class="form-control" placeholder="Enter Student name" id="name" name="name" required>
@@ -39,20 +40,20 @@
             </div>
             <div class="col-4">
                 <label for="dsaScore" class="form-label">Dsa score:</label>
-                <input type="number" class="form-control" placeholder="dsa score" id="dsaScore" name="dsaScore"
-                    required>
+                <input type="number" class="form-control" placeholder="dsa score" id="dsaScore" name="dsaScore" min="0"
+                    max="100" required>
 
             </div>
             <div class="col-4">
                 <label for="webdevScore" class="form-label">web Dev Score:</label>
                 <input type="number" class="form-control" placeholder="web dev score" id="webdevScore"
-                    name="webdevScore" required>
+                    name="webdevScore" min="0" max="100" required>
 
             </div>
             <div class="col-4">
                 <label for="reactScore" class="form-label">React Score</label>
                 <input type="number" class="form-control" placeholder="react score" id="reactScore" name="reactScore"
-                    required>
+                    min="0" max="100" required>
 
             </div>
             <button type="submit" class="btn btn-primary"> Submit</button>
@@ -60,5 +61,8 @@
     </div>
 
 
-</form>
-<script src="/static/js/studentForm.js"></script>
+    </form>
+    </div>
+    </div>
+    <% } %>
+        <script src="/static/js/studentForm.js"></script>

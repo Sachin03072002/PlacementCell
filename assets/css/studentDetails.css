@@ -7,6 +7,12 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.studentDetails::-webkit-scrollbar {
+  width: 40px;
+}
+aside::-webkit-scrollbar {
+  width: 40px;
+}
 
 .student_title {
   text-align: -webkit-center;

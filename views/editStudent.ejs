@@ -1,7 +1,8 @@
 <% if(locals.user){ %>
     <div class="container mt-4 col-md-4">
         <h4>Edit Details</h4>
-        <form action="/student/update/<%= student_details.id %>" method="post">
+        <form action="/student/update/<%= student_details.id %>" method="post"
+            class="row g-3 mt-1 border border-dark rounded p-2" style="--bs-border-opacity:0.5">
             <div class="col-12">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" placeholder="Enter Student name" id="name" name="name"
@@ -38,19 +39,19 @@
             <div class="col-4">
                 <label for="dsaScore" class="form-label">Dsa score</label>
                 <input type="number" class="form-control" placeholder="dsa score" id="dsaScore" name="dsaScore"
-                    value="<%= student_details.dsaScore %>" required>
+                    value="<%= student_details.dsaScore %>" min="0" max="100" required>
 
             </div>
             <div class="col-4">
                 <label for="webdevScore" class="form-label">web dev score</label>
                 <input type="number" class="form-control" placeholder="web dev score" id="webdevScore"
-                    name="webdevScore" value="<%= student_details.webdevScore %>" required>
+                    name="webdevScore" value="<%= student_details.webdevScore %>" min="0" max="100" required>
 
             </div>
             <div class="col-4">
                 <label for="reactScore" class="form-label">react score</label>
                 <input type="number" class="form-control" placeholder="react score" id="reactScore" name="reactScore"
-                    value="<%= student_details.reactScore %>" required>
+                    value="<%= student_details.reactScore %>" min="0" max="100" required>
 
             </div>
             <button type="submit" class="btn btn-primary"> UPdate</button>

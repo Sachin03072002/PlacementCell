@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-around flex-wrap p-4">
 
         <% if (students.length===0) { %>
-            <p>Empty</p>
+            <p>No Registered Student</p>
             <% } else { %>
                 <% for (student of students) { %>
                     <% if (student.length===0) { %>
@@ -59,7 +59,7 @@
 
     <div class="accordion accordion-flush" id="show-accordian">
         <% if (all_interviews.length===0) { %>
-            <p>Empty</p>
+            <p>No Schedule Interview</p>
             <% } else { %>
                 <% for (interview of all_interviews) { %>
                     <div class="accordion-item">

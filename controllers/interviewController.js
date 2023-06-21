@@ -24,7 +24,7 @@ module.exports.create = async (req, res) => {
             console.log("error in creating a new interview");
             return res.redirect("back");
         }
-        return res.redirect("back");
+        return res.redirect("/");
     } catch (err) {
         console.log(err);
     }

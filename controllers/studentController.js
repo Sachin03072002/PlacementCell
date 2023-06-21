@@ -44,7 +44,7 @@ module.exports.AddNewStudentForm = async function (req, res) {
             user: req.user._id
         });
 
-        return res.redirect('back');
+        return res.redirect('/');
     } catch (err) {
         console.log('error in creating new student', err);
         return res.redirect('back');

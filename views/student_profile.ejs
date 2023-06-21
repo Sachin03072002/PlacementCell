@@ -21,6 +21,21 @@
                 <p class="card-text"><small class="text-body-secondary">
                         <%= student.email %>
                     </small></p>
+                <p class="card-text">College: <small class="text-body-secondary">
+                        <%= student.college %>
+                    </small></p>
+                <p class="card-text">Batch: <small class="text-body-secondary">
+                        <%= student.bacth %>
+                    </small></p>
+                <p class="card-text">DSA Score: <small class="text-body-secondary">
+                        <%= student.dsaScore %>
+                    </small></p>
+                <p class="card-text">WEB DEV Score: <small class="text-body-secondary">
+                        <%= student.webdevScore %>
+                    </small></p>
+                <p class="card-text">React Score: <small class="text-body-secondary">
+                        <%= student.reactScore %>
+                    </small></p>
             </div>
         </div>
     </div>
@@ -31,12 +46,13 @@
     <ul>
         <% for (const interview of student.interviews) { %>
             <li>
+
                 <h4>
                     <%= interview.company %>
                 </h4>
                 <p>Date: <%= interview.date %>
                 </p>
-                <p>Status: <%= interview.status %>
+                <p>Status: <%= interview.result %>
                 </p>
             </li>
             <% } %>
