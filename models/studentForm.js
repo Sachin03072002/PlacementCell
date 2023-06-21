@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
+
 const StudentSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        requried: true
+        required: true
     },
     college: {
         type: String,
@@ -18,6 +19,7 @@ const StudentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
+        enum: ["Placed", "Not-Placed"],
         required: true
     },
     dsaScore: {
@@ -30,15 +32,34 @@ const StudentSchema = new mongoose.Schema({
     },
     reactScore: {
         type: Number,
-        requried: true
+        required: true
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    interviews: [
+        {
+            company: {
+                type: String,
+                required: true
+            },
+            date: {
+                type: Date, // Change the type to Date for storing the interview date
+                required: true
+            },
+            result: {
+                type: String,
+                enum: ["PASS", "FAIL", "Didn't Attempt", "On Hold"]
+            }
+        }
+    ]
 }, {
     timestamps: true
 });
+// Register the Student model
+mongoose.model('Student', StudentSchema);
 
-const Student = mongoose.model('Student', StudentSchema);
+// Now you can use the Student model
+const Student = mongoose.model('Student');
 module.exports = Student;

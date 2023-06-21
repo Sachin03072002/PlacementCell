@@ -9,7 +9,7 @@ console.log('router loaded');
 router.get('/', homeController.home);
 router.use('/users', require('./users'));
 router.use('/student', require('./student'));
-
+router.use('/interview', require('./interview'));
 
 
 module.exports = router;
