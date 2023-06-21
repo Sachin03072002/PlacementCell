@@ -19,7 +19,7 @@ const StudentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["Placed", "Not-Placed"],
+        enum: ["Placed", "Not-Placed", "placed", "not-placed"],
         required: true
     },
     dsaScore: {

@@ -1,0 +1,59 @@
+<% if(locals.user){ %>
+    <div class="container mt-4 col-md-4">
+        <h4>Edit Details</h4>
+        <form action="/student/update/<%= student_details.id %>" method="post">
+            <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Enter Student name" id="name" name="name"
+                    value="<%= student_details.name %>" required>
+
+            </div>
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter Student email" id="email" name="email"
+                    value="<%= student_details.email %>" required>
+
+            </div>
+            <div class="col-12">
+                <label for="college" class="form-label">College</label>
+                <input type="text" class="form-control" placeholder="Enter Student College Name" id="college"
+                    name="college" value="<%= student_details.college %>" required>
+
+            </div>
+            <div class="col-6">
+                <label for="status" class="form-label">status</label>
+                <select name="status" id="status" required>
+                    <option value="Placed" selected>Placed</option>
+                    <option value="Not-Placed">Not-Placed</option>
+
+                </select>
+
+            </div>
+            <div class="col-6">
+                <label for="batch" class="form-label">Batch</label>
+                <input type="text" class="form-control" placeholder="Enter Student batch" id="batch" name="batch"
+                    value="<%= student_details.batch %>" required>
+
+            </div>
+            <div class="col-4">
+                <label for="dsaScore" class="form-label">Dsa score</label>
+                <input type="number" class="form-control" placeholder="dsa score" id="dsaScore" name="dsaScore"
+                    value="<%= student_details.dsaScore %>" required>
+
+            </div>
+            <div class="col-4">
+                <label for="webdevScore" class="form-label">web dev score</label>
+                <input type="number" class="form-control" placeholder="web dev score" id="webdevScore"
+                    name="webdevScore" value="<%= student_details.webdevScore %>" required>
+
+            </div>
+            <div class="col-4">
+                <label for="reactScore" class="form-label">react score</label>
+                <input type="number" class="form-control" placeholder="react score" id="reactScore" name="reactScore"
+                    value="<%= student_details.reactScore %>" required>
+
+            </div>
+            <button type="submit" class="btn btn-primary"> UPdate</button>
+        </form>
+    </div>
+    <% } %>
