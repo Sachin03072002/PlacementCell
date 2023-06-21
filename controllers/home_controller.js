@@ -16,3 +16,13 @@ module.exports.home = async function (req, res) {
         return res.redirect('/');
     }
 };
+module.exports.placement = async function (req, res) {
+    try {
+        return res.render('placement', {
+            title: 'Placement Cell || Placement',
+        });
+    } catch (err) {
+        console.log('error', err);
+        return res.redirect('/');
+    }
+}

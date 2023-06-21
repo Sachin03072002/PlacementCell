@@ -1,0 +1,46 @@
+<div class="card mb-3" style="max-width: 640px;">
+    <div class="tools">
+        <a class="btn" style="width: 2rem;" href="/student/edit-student/<%= student.id %>"><i
+                class="fa-solid fa-pen-to-square"></i></a>
+        <a class="btn" style="width: 2rem;" href="/student/destroy/<%= student.id %>"><i
+                class="fa-solid fa-trash"></i></a>
+    </div>
+    <div class="row g-0">
+        <div class="col-md-2">
+            <img src="https://th.bing.com/th/id/OIP.Zu6JpD4EQWssu9_9t5Y7AwHaHa?pid=ImgDet&rs=1"
+                class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= student.name %>
+                </h5>
+                <p class="card-text">
+                    <%= student.status %>
+                </p>
+                <p class="card-text"><small class="text-body-secondary">
+                        <%= student.email %>
+                    </small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Interviews:</h3>
+<% if (student.interviews && student.interviews.length> 0) { %>
+    <ul>
+        <% for (const interview of student.interviews) { %>
+            <li>
+                <h4>
+                    <%= interview.company %>
+                </h4>
+                <p>Date: <%= interview.date %>
+                </p>
+                <p>Status: <%= interview.status %>
+                </p>
+            </li>
+            <% } %>
+    </ul>
+    <% } else { %>
+        <p>No interviews found.</p>
+        <% } %>

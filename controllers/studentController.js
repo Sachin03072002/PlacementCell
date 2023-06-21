@@ -10,6 +10,20 @@ module.exports.AddStudent = function (req, res) {
     });
 };
 
+module.exports.studentProfile = async function (req, res) {
+    const student = await Student.findById(req.params.id);
+
+    if (req.isAuthenticated()) {
+        return res.render("student_profile", {
+            title: "Edit Student",
+            student: student,
+        });
+    }
+
+    return res.redirect("/");
+};
+
+
 module.exports.AddNewStudentForm = async function (req, res) {
     // Check if any required field is empty
     if (!req.body.name || !req.body.email || !req.body.college || !req.body.batch || !req.body.status || !req.body.dsaScore || !req.body.webdevScore || !req.body.reactScore) {
@@ -110,3 +124,13 @@ module.exports.destroy = async (req, res) => {
         return res.redirect('back');
     }
 };
+module.exports.truncateGmailAddress = (email) => {
+    const words = email.split(' ');
+    if (words.length <= 10) {
+        return email;
+    } else {
+        const truncatedWords = words.slice(0, 10);
+        const truncatedEmail = truncatedWords.join('...');
+        return truncatedEmail;
+    }
+}

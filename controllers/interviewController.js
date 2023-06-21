@@ -66,7 +66,6 @@ module.exports.enrollInInterview = async (req, res) => {
             const updateInterviewResult = await interview.updateOne({
                 $push: { students: studentObj }
             });
-            console.log('Update interview result:', updateInterviewResult);
 
             // Update the student's interview information
             const assignedInterview = {
@@ -135,3 +134,27 @@ module.exports.deallocate = async (req, res) => {
         console.log("error", "coludnt deallocate from interview");
     }
 };
+
+
+//function to delete the interview 
+module.exports.delete = async (req, res) => {
+    try {
+        const { interviewId } = req.params;
+
+        let result = await Interview.findByIdAndDelete(interviewId);
+        if (!result) {
+            console.log('No interview found');
+        } else {
+            console.log('Deleted successfully');
+            // Remove interview reference from associated students
+            const studentIds = result.students;
+            await Student.updateMany(
+                { _id: { $in: studentIds } },
+                { $pull: { interviews: interviewId } }
+            );
+        }
+        return res.redirect("back");
+    } catch (err) {
+        console.log('Error:', err);
+    }
+}

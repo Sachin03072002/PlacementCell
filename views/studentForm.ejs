@@ -2,50 +2,60 @@
 <!-- <h2>New Student Form</h2> -->
 <form action="/student/addNewStudentForm" method="POST">
 
-    <div class="form-container">
+    <div class="container mt-12 col-md-12 center">
         <h2>Student Information</h2>
         <form>
-            <div class="form-group">
-                <input type="text" id="name" name="name" required>
-                <label for="name">Name:</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="class" name="email" required>
-                <label for="class">Email:</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="marks" name="college" required>
-                <label for="marks">College:</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="marks" name="batch" required>
-                <label for="marks">Batch:</label>
-            </div>
-            <div class="form-group">
+            <div class="col-12">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" placeholder="Enter Student name" id="name" name="name" required>
 
-                <label for="marks">Status:</label>
-                <select id="status" name="status" required onchange="updateStatus(this)">
-                    <option value="">Select status...</option>
-                    <option value="Placed">Placed</option>
+            </div>
+            <div class="col-12">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" placeholder="Enter Student email" id="email" name="email"
+                    required>
+
+            </div>
+            <div class="col-12">
+                <label for="college" class="form-label">College:</label>
+                <input type="text" class="form-control" placeholder="Enter Student College Name" id="college"
+                    name="college" required>
+
+            </div>
+            <div class="col-6">
+                <label for="status" class="form-label">Status:</label>
+                <select name="status" id="status" required>
+                    <option value="Placed" selected>Placed</option>
                     <option value="Not-Placed">Not-Placed</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="text" id="marks" name="dsaScore" required>
-                <label for="marks">DSA Score:</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="marks" name="webdevScore" required>
-                <label for="marks">Web Dev Score:</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="marks" name="reactScore" required>
-                <label for="marks">React Score:</label>
-            </div>
 
-            <div class="form-group">
-                <input type="submit" value="Submit">
+                </select>
+
             </div>
+            <div class="col-6">
+                <label for="batch" class="form-label">Batch:</label>
+                <input type="text" class="form-control" placeholder="Enter Student batch" id="batch" name="batch"
+                    required>
+
+            </div>
+            <div class="col-4">
+                <label for="dsaScore" class="form-label">Dsa score:</label>
+                <input type="number" class="form-control" placeholder="dsa score" id="dsaScore" name="dsaScore"
+                    required>
+
+            </div>
+            <div class="col-4">
+                <label for="webdevScore" class="form-label">web Dev Score:</label>
+                <input type="number" class="form-control" placeholder="web dev score" id="webdevScore"
+                    name="webdevScore" required>
+
+            </div>
+            <div class="col-4">
+                <label for="reactScore" class="form-label">React Score</label>
+                <input type="number" class="form-control" placeholder="react score" id="reactScore" name="reactScore"
+                    required>
+
+            </div>
+            <button type="submit" class="btn btn-primary"> Submit</button>
         </form>
     </div>
 
