@@ -1,0 +1,12 @@
+[0mGET / [32m200[0m 251.490 ms - 13879[0m
+[0mGET /users/sign-In [36m304[0m 46.838 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 38.635 ms - 46[0m
+[0mGET / [32m200[0m 41.302 ms - 14249[0m
+[0mGET /student/Add-Student [36m304[0m 23.502 ms - -[0m
+[0mGET /static/js/studentForm.js [33m404[0m 24.097 ms - 163[0m
+[0mPOST /student/addNewStudentForm [36m302[0m 58.297 ms - 46[0m
+[0mGET / [32m200[0m 34.700 ms - 16400[0m
+[0mPOST /interview/enroll-in-interview/6493225c6171e9cf518be7f3 [36m302[0m 91.161 ms - 88[0m
+[0mGET / [32m200[0m 44.794 ms - 18250[0m
+[0mGET /student/studentProfile/6493e94a14ff69a9a32b3f4b [32m200[0m 88.009 ms - 8365[0m
+[0mGET / [32m200[0m 235.874 ms - 17866[0m

@@ -1,6 +1,7 @@
 //setting up the database connection with mongodb
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/placement_development');
+const env = require("./environment");
+mongoose.connect(`mongodb://127.0.0.1:27017/${env.db}`);
 
 const db = mongoose.connection;
 

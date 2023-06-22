@@ -1,5 +1,7 @@
 // Acquiring Express and other dependencies
 const express = require("express");
+const env = require('./config/environment');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
@@ -19,7 +21,10 @@ const customMWare = require('./config/middleware');
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
-app.use('/static', express.static(path.join(process.cwd(), 'assets')));
+app.use('/static', express.static(path.join(process.cwd(), env.asset_path)));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
+
 app.use(expressLayouts);
 
 // Extract styles and scripts from sub pages into the layout
@@ -33,7 +38,7 @@ app.set('views', path.join(__dirname, 'views'));
 //mongo store is used to store the session cookie
 // Session configuration
 app.use(session({
-    name: 'placement-cell',
+    name: env.session_cookie_key,
     secret: 'place',
     saveUninitialized: false,
     resave: false,
