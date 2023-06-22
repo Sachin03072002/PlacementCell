@@ -21,15 +21,18 @@ module.exports.create = async (req, res) => {
             date,
         });
         if (!newInterview) {
+            req.flash("error", "Interview Not Created..:(");
             console.log("error in creating a new interview");
             return res.redirect("back");
         }
+        req.flash("success", "New Data Created Successfully..:)");
         return res.redirect("/");
     } catch (err) {
         console.log(err);
     }
 };
 
+//function for the enrolling of the student
 module.exports.enrollInInterview = async (req, res) => {
     try {
         const interview = await Interview.findById(req.params.id);
@@ -39,7 +42,6 @@ module.exports.enrollInInterview = async (req, res) => {
 
         if (interview) {
             const student = await Student.findOne({ email });
-            console.log('Student:', student);
 
             if (student) {
                 // Check if already enrolled
@@ -49,11 +51,13 @@ module.exports.enrollInInterview = async (req, res) => {
 
                 // Prevent student from enrolling in the same company more than once
                 if (alreadyEnrolled && alreadyEnrolled.company === interview.company) {
+                    req.flash("alert", "Already Enrolled..");
                     console.log('Already enrolled');
                     return res.redirect('back');
                 }
             } else {
                 console.log('Student not found');
+                req.flash("error", "Student not found..:(");
                 return res.redirect('back');
             }
 
@@ -77,13 +81,11 @@ module.exports.enrollInInterview = async (req, res) => {
             const updateStudentResult = await student.updateOne({
                 $push: { interviews: assignedInterview }
             });
-            console.log('Update student result:', updateStudentResult);
-
-            console.log(`Success: ${student.name} enrolled in ${interview.company} interview`);
+            req.flash("success", `Success: ${student.name} enrolled in ${interview.company} interview`);
             return res.redirect('back');
         }
 
-        console.log('Interview not found');
+        req.flash("error", "Interview not found..:(");
         return res.redirect('back');
     } catch (err) {
         console.log('Error:', err);
@@ -126,6 +128,7 @@ module.exports.deallocate = async (req, res) => {
                 }
 
             );
+            req.flash("success", "Inerview Deallocated Successfully...:)");
             return res.redirect("back");
         }
         return res.redirect("back");
@@ -162,7 +165,7 @@ module.exports.delete = async (req, res) => {
 
         // Delete the interview
         await Interview.findByIdAndDelete(interviewId);
-
+        req.flash("success", "Interview Deleted Successfully...:)");
         return res.redirect("back");
     } catch (err) {
         console.log('Error:', err);

@@ -1,5 +1,7 @@
 const User = require('../models/user');
 
+
+//function to render the profile
 module.exports.profile = function (req, res) {
     return res.render('user_profile', {
         title: 'Placement Cell | User Profile',
@@ -25,14 +27,16 @@ module.exports.updateUser = async function (req, res) {
         user.password = password;
 
         user.save();
+        req.flash("sucess", "User Updated Successfully...");
         return res.redirect("back");
     } catch (err) {
         console.log(err);
+        req.flash("error", "User not updated....");
         return res.redirect("back");
     }
 };
 
-
+//function to render the home
 module.exports.home = function (req, res) {
     if (req.isAuthenticated()) {
         res.redirect('/');
@@ -41,6 +45,8 @@ module.exports.home = function (req, res) {
         title: 'Placement Cell | Home'
     })
 }
+
+//function to render the signup page
 module.exports.signUp = function (req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
@@ -50,6 +56,7 @@ module.exports.signUp = function (req, res) {
     })
 }
 
+//function to render the sign in page
 module.exports.signIn = function (req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
@@ -58,6 +65,8 @@ module.exports.signIn = function (req, res) {
         title: 'Placement-Cell | Sign-In'
     })
 }
+
+//function to create user 
 module.exports.create = async function (req, res) {
     // Check if any required field is empty
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.Confirmpassword) {
@@ -66,6 +75,7 @@ module.exports.create = async function (req, res) {
     }
 
     if (req.body.password != req.body.Confirmpassword) {
+
         return res.redirect('back');
     }
 
@@ -82,10 +92,12 @@ module.exports.create = async function (req, res) {
             const createdUser = await User.create(userData);
             return res.redirect('/users/sign-in');
         } else {
+            req.flash("error", "Invalid Username/Password...");
             return res.redirect('back');
         }
     } catch (err) {
         console.log('error in finding or creating user', err);
+        req.flash("error", "User not created..");
         return res.redirect('back');
     }
 };
@@ -93,6 +105,7 @@ module.exports.create = async function (req, res) {
 
 
 module.exports.createSession = function (req, res) {
+    req.flash("success", "Logged in Successfully..");
     return res.redirect('/');
 }
 
@@ -103,8 +116,11 @@ module.exports.destroySession = function (req, res) {
             console.log('Error logging out:', err);
             return res.redirect('/');
         }
+        req.flash("success", "Successfully Logged out..");
         return res.redirect('/');
     });
+
+
 }
 
 

@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Student = require("../models/studentForm");
 
+//function for the download of the csv file 
 module.exports.downloadcsvReport = async function (req, res) {
     try {
         const allStudents = await Student.find({});
@@ -29,8 +30,10 @@ module.exports.downloadcsvReport = async function (req, res) {
             }
             return res.download(filePath);
         });
+        req.flash("success", "Downloaded Successfully..:)");
     } catch (err) {
         console.log(err);
+        req.flash("error", "Error in Downloading..:(");
         return res.redirect("back");
     }
 };

@@ -2,7 +2,6 @@ body {
   overflow-x: hidden;
 }
 main {
-  margin: auto;
-  margin-top: 5%;
+  margin-top: 8%;
   display: flex;
 }

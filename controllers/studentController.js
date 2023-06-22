@@ -1,6 +1,7 @@
 const Student = require('../models/studentForm');
 const Interview = require('../models/interview');
 
+//function for rendering the add student page
 module.exports.AddStudent = function (req, res) {
     if (!req.isAuthenticated()) {
         return res.redirect('/');
@@ -9,7 +10,7 @@ module.exports.AddStudent = function (req, res) {
         title: 'Placement-Cell | Add-Student'
     });
 };
-
+//function for rendering the student profile page
 module.exports.studentProfile = async function (req, res) {
     const student = await Student.findById(req.params.id);
 
@@ -23,7 +24,7 @@ module.exports.studentProfile = async function (req, res) {
     return res.redirect("/");
 };
 
-
+//function to add new student form
 module.exports.AddNewStudentForm = async function (req, res) {
     // Check if any required field is empty
     if (!req.body.name || !req.body.email || !req.body.college || !req.body.batch || !req.body.status || !req.body.dsaScore || !req.body.webdevScore || !req.body.reactScore) {
@@ -43,10 +44,11 @@ module.exports.AddNewStudentForm = async function (req, res) {
             reactScore: req.body.reactScore,
             user: req.user._id
         });
-
+        req.flash("success", "Student Added Successfully....");
         return res.redirect('/');
     } catch (err) {
         console.log('error in creating new student', err);
+        req.flash("error", "Stududent not created...");
         return res.redirect('back');
     }
 };
@@ -90,12 +92,16 @@ module.exports.update = async (req, res) => {
         student.status = status;
 
         student.save();
+        req.flash("error", "Student updated Successfully....");
         return res.redirect("/");
     } catch (err) {
         console.log(err);
+        req.flash("error", "Error in Updating Student...");
         return res.redirect("back");
     }
 };
+
+//function to delete the student
 module.exports.destroy = async (req, res) => {
     try {
         const { studentId } = req.params;
@@ -118,19 +124,11 @@ module.exports.destroy = async (req, res) => {
         }
 
         await Student.deleteOne({ _id: studentId });
+        req.flash("success", "Student Deleted Successfully...");
         return res.redirect('/');
     } catch (err) {
         console.log('error', err);
+        req.flash("error", "Error in Deleting...");
         return res.redirect('back');
     }
 };
-module.exports.truncateGmailAddress = (email) => {
-    const words = email.split(' ');
-    if (words.length <= 10) {
-        return email;
-    } else {
-        const truncatedWords = words.slice(0, 10);
-        const truncatedEmail = truncatedWords.join('...');
-        return truncatedEmail;
-    }
-}
