@@ -28,7 +28,8 @@
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "rotating-file-stream": "^3.1.0"
+    "rotating-file-stream": "^3.1.0",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "esm": "^3.2.25",

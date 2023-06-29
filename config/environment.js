@@ -1,12 +1,10 @@
 const fs = require('fs');
-const rfs = require('rotating-file-stream');
 const path = require('path');
+const { createWriteStream } = require('fs');
+
 const logDirectory = path.join(__dirname, '../production_logs');
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
-const accessLogStream = rfs.createStream('access.log', {
-    interval: '1d',
-    path: logDirectory
-});
+const accessLogStream = createWriteStream(path.join(logDirectory, 'access.log'), { flags: 'a' });
 
 const development = {
     name: 'development',
@@ -15,9 +13,9 @@ const development = {
     db: 'placement_development',
     morgan: {
         mode: 'dev',
-        options: { stream: accessLogStream }
-    }
-}
+        options: { stream: accessLogStream },
+    },
+};
 
 const production = {
     name: 'production',
@@ -26,8 +24,8 @@ const production = {
     db: process.env.DB,
     morgan: {
         mode: 'combined',
-        options: { stream: accessLogStream }
-    }
-}
+        options: { stream: accessLogStream },
+    },
+};
 
-module.exports = eval(process.env.PLACEMENT_ENVIRONMENT) == undefined ? development : eval(process.env.PLACEMENT_ENVIRONMENT);
+module.exports = process.env.PLACEMENT_ENVIRONMENT === 'production' ? production : development;
