@@ -10,3 +10,16 @@
 [0mGET / [32m200[0m 44.794 ms - 18250[0m
 [0mGET /student/studentProfile/6493e94a14ff69a9a32b3f4b [32m200[0m 88.009 ms - 8365[0m
 [0mGET / [32m200[0m 235.874 ms - 17866[0m
+[0mGET / [32m200[0m 723.683 ms - 17836[0m
+[0mGET /favicon.ico [33m404[0m 22.232 ms - 150[0m
+[0mGET /users/sign-In [36m304[0m 52.213 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 47.028 ms - 46[0m
+[0mGET / [32m200[0m 89.914 ms - 18206[0m
+[0mGET /student/edit-student/6493e94a14ff69a9a32b3f4b [32m200[0m 74.333 ms - 8994[0m
+[0mPOST /student/update/6493e94a14ff69a9a32b3f4b [36m302[0m 37.318 ms - 46[0m
+[0mGET / [32m200[0m 65.337 ms - 18212[0m
+[0mGET /student/edit-student/6493e94a14ff69a9a32b3f4b [32m200[0m 185.959 ms - 8994[0m
+[0mPOST /student/update/6493e94a14ff69a9a32b3f4b [36m302[0m 58.669 ms - 46[0m
+[0mGET / [32m200[0m 90.896 ms - 18214[0m
+[0mGET /users/sign-out [36m302[0m 34.509 ms - 46[0m
+[0mGET / [32m200[0m 58.578 ms - 18177[0m

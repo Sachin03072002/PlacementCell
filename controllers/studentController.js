@@ -92,7 +92,7 @@ module.exports.update = async (req, res) => {
         student.status = status;
 
         student.save();
-        req.flash("error", "Student updated Successfully....");
+        req.flash("success", "Student updated Successfully....");
         return res.redirect("/");
     } catch (err) {
         console.log(err);

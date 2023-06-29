@@ -11,7 +11,7 @@ router.get('/', homeController.home);
 router.use('/users', require('./users'));
 router.use('/student', require('./student'));
 router.use('/interview', require('./interview'));
-router.use('/placement', homeController.placement);
+router.get('/placement', homeController.placement);
 router.get("/download", reportController.downloadcsvReport);
 
 module.exports = router;
